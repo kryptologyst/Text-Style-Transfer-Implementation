@@ -1,0 +1,117 @@
+# Configuration for Text Style Transfer Project
+# This file contains all configurable parameters for the project
+
+# Model Configuration
+MODELS = {
+    "t5_paraphrase": {
+        "name": "prithivida/parrot_paraphraser_on_T5",
+        "type": "text2text-generation",
+        "max_length": 50,
+        "num_return_sequences": 3,
+        "temperature": 0.7,
+        "do_sample": True
+    },
+    "gpt2_style": {
+        "name": "gpt2",
+        "type": "text-generation",
+        "max_length": 100,
+        "temperature": 0.8,
+        "top_p": 0.9,
+        "do_sample": True
+    },
+    "bart_paraphrase": {
+        "name": "facebook/bart-large-cnn",
+        "type": "summarization",
+        "max_length": 50,
+        "min_length": 10,
+        "do_sample": True
+    }
+}
+
+# Style Categories and Prompts
+STYLE_CATEGORIES = {
+    "formal_to_informal": {
+        "description": "Convert formal language to casual/informal",
+        "prompt_template": "Rewrite this formal text in a casual, informal style: {text}",
+        "examples": [
+            "The presentation was highly professional and informative.",
+            "I am extremely disappointed with the product I received."
+        ]
+    },
+    "informal_to_formal": {
+        "description": "Convert casual language to formal/professional",
+        "prompt_template": "Rewrite this casual text in a formal, professional style: {text}",
+        "examples": [
+            "This is awesome!",
+            "I'm totally not happy with this."
+        ]
+    },
+    "positive_to_negative": {
+        "description": "Change positive sentiment to negative",
+        "prompt_template": "Rewrite this positive text with negative sentiment: {text}",
+        "examples": [
+            "I love this product!",
+            "This service is excellent."
+        ]
+    },
+    "negative_to_positive": {
+        "description": "Change negative sentiment to positive",
+        "prompt_template": "Rewrite this negative text with positive sentiment: {text}",
+        "examples": [
+            "This product is terrible.",
+            "I hate this service."
+        ]
+    },
+    "modern_to_shakespearean": {
+        "description": "Convert modern English to Shakespearean style",
+        "prompt_template": "Rewrite this modern text in Shakespearean style: {text}",
+        "examples": [
+            "I love you very much.",
+            "This is a beautiful day."
+        ]
+    },
+    "shakespearean_to_modern": {
+        "description": "Convert Shakespearean style to modern English",
+        "prompt_template": "Rewrite this Shakespearean text in modern English: {text}",
+        "examples": [
+            "Thou art most fair.",
+            "Hark! What light through yonder window breaks?"
+        ]
+    }
+}
+
+# Evaluation Metrics Configuration
+EVALUATION_METRICS = {
+    "bleu": True,
+    "rouge": True,
+    "bert_score": True,
+    "semantic_similarity": True,
+    "style_classification": True
+}
+
+# UI Configuration
+UI_CONFIG = {
+    "default_model": "t5_paraphrase",
+    "default_style": "formal_to_informal",
+    "max_text_length": 500,
+    "show_confidence_scores": True,
+    "enable_batch_processing": True
+}
+
+# Database Configuration
+DATABASE_CONFIG = {
+    "type": "sqlite",
+    "path": "data/style_transfer_samples.db",
+    "tables": {
+        "samples": "sample_texts",
+        "styles": "style_categories",
+        "results": "transfer_results"
+    }
+}
+
+# Logging Configuration
+LOGGING_CONFIG = {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "logs/style_transfer.log"
+}

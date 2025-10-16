@@ -1,0 +1,39 @@
+# Core ML/NLP Libraries
+torch>=2.0.0
+transformers>=4.35.0
+datasets>=2.14.0
+accelerate>=0.24.0
+
+# Text Processing and Evaluation
+nltk>=3.8.1
+spacy>=3.7.0
+sentence-transformers>=2.2.2
+rouge-score>=0.1.2
+sacrebleu>=2.3.1
+bert-score>=0.3.13
+
+# Web UI
+streamlit>=1.28.0
+gradio>=4.0.0
+
+# Data Processing
+pandas>=2.1.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Configuration and Utilities
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+rich>=13.6.0
+
+# Development and Testing
+pytest>=7.4.0
+black>=23.9.0
+flake8>=6.1.0
+mypy>=1.6.0
+
+# Optional: For advanced features
+openai>=1.3.0  # For GPT-based style transfer
+sentencepiece>=0.1.99  # For tokenization
+protobuf>=4.24.0  # For model compatibility
